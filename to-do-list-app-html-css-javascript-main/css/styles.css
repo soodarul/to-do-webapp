@@ -1,0 +1,198 @@
+:root {
+    --body-background: #13788a;
+    --primary: #eb2020;
+    --primary-hover: #cb1b1b;
+    --border-color: #efefef;
+    --app-background: #fff;
+    --text-color: #303030;
+    --gray-color: #b8b8b8;
+    --box-shadow-color: #ff5c5c; 
+    --delete-task-color: #dc3545;
+    --delete-task-hover: #c82333;
+    --completed-task-color: #bff6e7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background: var(--body-background);
+    color: var(--text-color);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.todo-app {
+    height: calc(100vh - 100px);
+    max-width: 600px;
+    width: 100%;
+    background: var(--app-background);
+    border-radius: 6px;
+    overflow: hidden;
+    padding: 30px;
+    box-shadow: 0 0 12px -4px var(--box-shadow-color);
+}
+
+.todo-app .container {
+    max-width: 400px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.todo-app header,
+.todo-app footer {
+    width: 100%;
+    background: var(--app-background);
+    position: sticky;
+    top: 0;
+}
+
+.todo-app footer {
+    top: unset;
+    bottom: 0;
+    text-align: center;
+}
+
+.todo-app main {
+    padding: 20px 0;
+    height: calc(100vh - 212px);
+}
+
+.todo-app h1,
+.todo-app h2 {
+    font-weight: 300;
+    color: var(--primary);
+}
+
+.todo-app h1 {
+    font-size: 30px;
+}
+
+.todo-app h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.todo-app form {
+    display: flex;
+    margin-bottom: 30px;
+    background-color: var(--app-background);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    border-radius: 50px;
+}
+
+.todo-app input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+}
+
+.todo-app button[type="submit"] {
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 400;
+    width: 140px;
+    font-size: 16px;
+}
+
+.todo-app button[type="submit"]:hover {
+    background-color: var(--primary-hover);
+}
+
+.todo-app ul.task-list {
+    list-style-type: none;
+    margin-top: 20px;
+    padding: 0;
+    overflow-y: auto;
+    height: calc(100% - 120px);
+}
+
+.todo-app li {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid var(--border-color);
+    align-items: center;
+    gap: 10px; 
+    cursor: pointer;
+}
+
+.todo-app li.completed {  
+    opacity: 0.5;
+    background: var(--completed-task-color);
+}
+
+.todo-app li.completed span.task-text {
+    text-decoration: line-through; 
+}
+
+.todo-app li > span,
+.todo-app li > button {
+    text-decoration: none;
+}
+
+.todo-app input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.todo-app button.delete-task {
+    background-color: transparent;
+    color: var(--delete-task-color);
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.todo-app button.delete-task:hover {
+    color: var(--delete-task-hover);
+}
+
+.todo-app footer p {
+    font-size: 12px;
+    color: var(--gray-color)
+}
+
+.todo-app .empty-card {
+    border-radius: 5px;
+    margin-top: 10px;
+    color: var(--gray-color)
+}
+
+@media all and (max-width: 640px) {
+    .todo-app {
+        height:  100vh;
+        border-radius: 0;
+        max-width: 100%;
+    }
+
+    .todo-app main {
+        height: calc(100vh - 111px);
+    }
+
+    .todo-app h1 {
+        font-size: 24px;
+    }
+
+    .todo-app h2 {
+        font-size: 16px;
+    }
+
+    .todo-app button[type="submit"] {
+        padding: 10px;
+    }
+ 
+}
